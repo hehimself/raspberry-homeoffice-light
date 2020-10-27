@@ -3,9 +3,9 @@
 
 
 Die Hauptfunktionen der Ampel sind die Farben:
-Grün
-Gelb
-Rot
+* Grün
+* Gelb
+* Rot
 
 Die LED Leiste "Blink" von Pimoroni wird über die blinkt Biblothek angesteuert. Um die LED Leitste auszuschalten wird folgende Funktion benutzt:
 ```python
