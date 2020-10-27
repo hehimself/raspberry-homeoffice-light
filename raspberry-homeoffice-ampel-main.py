@@ -39,9 +39,14 @@ try:
 except ImportError:
     exit("Die Bibliothek: blinkt konnte nicht geladen werden")
 try:
+    import configparser
+except ImportError:
+    exit("Die Bibliothek: configparse konnte nicht geladen werden")
+try:
     import signalleuchte
 except ImportError:
     exit("Die Bibliothek: signalleuchte konnte nicht geladen werden")
+
 
 #Textbeispiele
 text_start = colored('  program started', 'green', attrs=['bold'])
