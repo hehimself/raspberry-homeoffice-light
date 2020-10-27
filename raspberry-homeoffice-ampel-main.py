@@ -65,20 +65,20 @@ except:
 
 #Logging
 try:
-    logging.basicConfig(filename='marvinpizero-signalleuchte.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+    logging.basicConfig(filename=config.get('LOGS','FILENAME'), format='%(asctime)s %(message)s', level=logging.DEBUG)
     logging.info('Logging app started')
 except:
     exit(time.strftime("%d.%m.%Y %H:%M:%S  ") + text_fehler +  "  Probleme Beim Logging: Log konnte nicht erstellt werden")
 
 #MQTT Einstellungen
 
-MQTT_SERVER = "iobrokerpi"
-MQTT_PATH = "/home/data"
-MQTT_CLIENT_NAME = "marvinpizero"
-MQTT_CLIENT_USERNAME = "mqtt0"
-MQTT_CLIENT_PW = "4A6bo433"
-port=1883
-broker="iobrokerpi"
+MQTT_SERVER = config.get('MQTT','SERVER')
+MQTT_PATH = config.get('MQTT','PATH')
+MQTT_CLIENT_NAME = config.get('MQTT','CLIENT_NAME')
+MQTT_CLIENT_USERNAME = config.get('MQTT','CLIENT_USERNAME')
+MQTT_CLIENT_PW = config.get('MQTT','CLIENT_PASSWORD')
+MQTT_PORT = config.get('MQTT','PORT')
+broker = config.get('MQTT','BROKER')
 CLEAN_SESSION=True
 
 
@@ -110,7 +110,7 @@ client.on_subscribe = on_subscribe   #assign function to callback
 client.on_disconnect = on_disconnect #assign function to callback
 client.on_connect = on_connect #assign function to callback
 client.on_message=on_message
-client.connect(broker,port, keepalive=60)           #establish connection
+client.connect(broker,MQTT_PORT, keepalive=60)           #establish connection
 time.sleep(1)
 client.loop_start()
 client.subscribe("/marvinpi/num")       #need to be chanched to the individual server
