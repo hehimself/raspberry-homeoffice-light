@@ -23,10 +23,6 @@ try:
 except ImportError:
     exit("Die Bibliothek: termcolor konnte nicht geladen werden")
 try:
-    import colorsys
-except ImportError:
-    exit("Die Bibliothek: colorsys konnte nicht geladen werden")
-try:
     import math
 except ImportError:
     print("Die Bibliothek: math konnte nicht geladen werden")
