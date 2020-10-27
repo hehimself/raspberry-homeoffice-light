@@ -1,5 +1,5 @@
 # Raspberry Pi Homeoffice Ampel [MQTT]
-[![Generic badge](https://img.shields.io/badge/Status-WIP-brightgreen.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Status-stable-brightgreen.svg)](https://shields.io/)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
