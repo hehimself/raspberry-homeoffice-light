@@ -7,6 +7,24 @@ Grün
 Gelb
 Rot
 
+Die LED Leiste "Blink" von Pimoroni wird über die blinkt Biblothek angesteuert. Um die LED Leitste auszuschalten wird folgende Funktion benutzt:
 ```python
-def
+def clear():
+    blinkt.clear()
+    blinkt.show()
+    time.sleep(0.5)
+```
+Die Hauptfunktionen der Ampel: (weitere Animationen sind in https://github.com/hehimself/raspberry-homeoffice-light/blob/main/signalleuchte.py verfügbar)
+```python
+def solid_red():
+    blinkt.set_all(255,0,0)
+    blinkt.show()
+    
+def solid_green():
+    blinkt.set_all(0,255,0)
+    blinkt.show()    
+
+def solid_orange():
+    blinkt.set_all(255,128,0)
+    blinkt.show()
 ```
