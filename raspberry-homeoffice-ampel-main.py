@@ -66,7 +66,6 @@ MQTT_CLIENT_NAME = "marvinpizero"
 MQTT_CLIENT_USERNAME = "mqtt0"
 MQTT_CLIENT_PW = "4A6bo433"
 port=1883
-QOS=0
 broker="iobrokerpi"
 CLEAN_SESSION=True
 
