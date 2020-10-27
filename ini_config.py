@@ -10,4 +10,11 @@ config.read('config.ini')
 # config.get('DATABASE', 'HOST')
 # config['DATABASE']['HOST']
 
-print(config.get('LOGS','FILENAME'))
+MQTT_SERVER = config.get('MQTT','SERVER')
+MQTT_PATH = config.get('MQTT','PATH')
+MQTT_CLIENT_NAME = config.get('MQTT','CLIENT_NAME')
+MQTT_CLIENT_USERNAME = config.get('MQTT','CLIENT_USERNAME')
+MQTT_CLIENT_PW = config.get('MQTT','CLIENT_PASSWORD')
+MQTT_PORT = config.get('MQTT','PORT')
+broker = config.get('MQTT','BROKER')
+print(MQTT_CLIENT_PW)
