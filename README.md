@@ -1,2 +1,2 @@
-# raspberry-homeoffice-Ampel
+# Raspberry Pi Homeoffice Ampel
  Raspberry pi Ampel zum anzeigen, ob man sich gerade in einer Videokonferenz befindet und nicht gestört werden will
