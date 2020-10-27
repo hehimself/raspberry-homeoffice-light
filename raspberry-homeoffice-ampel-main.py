@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #-----------------------------
 #
-#   MQTT-Signalleuchte
+#   MQTT-homeoffice light
 #
 #   von: Marvin Schmid
 #
@@ -44,7 +44,7 @@ except ImportError:
     exit("Die Bibliothek: signalleuchte konnte nicht geladen werden")
 
 #Textbeispiele
-text_start = colored('  Programm wurde gestartet', 'green', attrs=['bold'])
+text_start = colored('  program started', 'green', attrs=['bold'])
 text_ok = colored('OK', 'green', attrs=['bold'])
 text_falsche_formatierung = colored('Fehler: Falsch formatierter Befehl', 'red')
 text_ende = colored('  Das Programm wurde durch den Benutzer beendet', 'green', attrs=['bold'])
@@ -102,8 +102,7 @@ client.subscribe("/marvinpi/num")
 print("Connected to MQTT Broker: " + broker)
 
 
-"""-------------------------------"""
-#WICHTIGE Variable
+#important variable 
 command = 0
 
 print(time.strftime("%d.%m.%Y %H:%M:%S") + "  Log Funktion" + "   [ " + text_ok + " ]")
