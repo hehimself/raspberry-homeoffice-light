@@ -14,7 +14,7 @@ def clear():
     blinkt.show()
     time.sleep(0.5)
 ```
-Die Hauptfunktionen der Ampel: (weitere Animationen sind in https://github.com/hehimself/raspberry-homeoffice-light/blob/main/signalleuchte.py verfügbar)
+Die Hauptfunktionen der Ampel: (weitere Animationen sind in [signalleuchte.py]https://github.com/hehimself/raspberry-homeoffice-light/blob/main/signalleuchte.py verfügbar)
 ```python
 def solid_red():
     blinkt.set_all(255,0,0)
