@@ -3,6 +3,7 @@
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
+<img src="https://img.shields.io/badge/-Raspberry%20Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi"/>" />
  Raspberry pi Ampel zum anzeigen, ob man sich gerade in einer Videokonferenz befindet und nicht gestört werden will
 
 
