@@ -56,6 +56,13 @@ text_ende = colored('  Das Programm wurde durch den Benutzer beendet', 'green', 
 text_fehler = colored('WARN', 'red', attrs=['bold', 'reverse'])
 print(time.strftime("%d.%m.%Y %H:%M:%S") + text_start + "\n")
 
+#Load Config file
+try:
+    config = configparser.ConfigParser()                                     
+    config.read('config.ini')
+except:
+    exit("config konnte nicht geladen werden")
+
 #Logging
 try:
     logging.basicConfig(filename='marvinpizero-signalleuchte.log', format='%(asctime)s %(message)s', level=logging.DEBUG)

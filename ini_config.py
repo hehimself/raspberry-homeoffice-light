@@ -7,5 +7,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 # Get values from our .ini file
-config.get('DATABASE', 'HOST')
-config['DATABASE']['HOST']
+# config.get('DATABASE', 'HOST')
+# config['DATABASE']['HOST']
+
+print(config.get('LOGS','FILENAME'))
