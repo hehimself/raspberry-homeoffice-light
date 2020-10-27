@@ -59,8 +59,12 @@ except:
     exit(time.strftime("%d.%m.%Y %H:%M:%S  ") + text_fehler +  "  Probleme Beim Logging: Log konnte nicht erstellt werden")
 
 #MQTT Einstellungen
+
 MQTT_SERVER = "iobrokerpi"
 MQTT_PATH = "/home/data"
+MQTT_CLIENT_NAME = "marvinpizero"
+MQTT_CLIENT_USERNAME = "mqtt0"
+MQTT_CLIENT_PW = "4A6bo433"
 port=1883
 QOS=0
 broker="iobrokerpi"
@@ -89,8 +93,8 @@ def on_connect(client, userdata, flags, rc):
 
 topic1 ="/marvinpi/num"
 
-client= mqtt.Client("marvinpizero",False)       #create client object
-client.username_pw_set("mqtt0", "4A6bo433")
+client= mqtt.Client(MQTT_CLIENT_NAME,False)       #create client object
+client.username_pw_set(MQTT_CLIENT_USERNAME, MQTT_CLIENT_PW)
 client.on_subscribe = on_subscribe   #assign function to callback
 client.on_disconnect = on_disconnect #assign function to callback
 client.on_connect = on_connect #assign function to callback
@@ -98,7 +102,7 @@ client.on_message=on_message
 client.connect(broker,port, keepalive=60)           #establish connection
 time.sleep(1)
 client.loop_start()
-client.subscribe("/marvinpi/num")
+client.subscribe("/marvinpi/num")       #need to be chanched to the individual server
 print("Connected to MQTT Broker: " + broker)
 
 
