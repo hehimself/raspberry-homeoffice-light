@@ -28,3 +28,6 @@ def solid_orange():
     blinkt.set_all(255,128,0)
     blinkt.show()
 ```
+
+So kann man immer anzeigen, dass man gerade nicht gestört werden will:
+[![video](main/photos/video_red.gif)](https://github.com/hehimself/raspberry-homeoffice-light/blob/main/photos/video_red.gif)
