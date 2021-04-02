@@ -4,7 +4,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
  Raspberry pi Ampel zum anzeigen, ob man sich gerade in einer Videokonferenz befindet und nicht gestört werden will
-
+![light](photos/Signalleuchte _ Home-Office-Ampel.png)
 
 Die Hauptfunktionen der Ampel sind die Farben:
 * Grün (man kann gestört werden)
