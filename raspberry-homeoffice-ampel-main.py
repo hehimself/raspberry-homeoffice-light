@@ -3,7 +3,9 @@
 #
 #   MQTT-homeoffice light
 #
-#   von: Marvin Schmid
+#   by: Marvin Schmid
+#
+#   version: 1.5
 #
 #-----------------------------
 try:
@@ -45,12 +47,12 @@ except ImportError:
 
 
 #Textbeispiele
-text_start = colored('  program started', 'green', attrs=['bold'])
-text_ok = colored('OK', 'green', attrs=['bold'])
-text_falsche_formatierung = colored('Fehler: Falsch formatierter Befehl', 'red')
-text_ende = colored('  Das Programm wurde durch den Benutzer beendet', 'green', attrs=['bold'])
-text_fehler = colored('WARN', 'red', attrs=['bold', 'reverse'])
-print(time.strftime("%d.%m.%Y %H:%M:%S") + text_start + "\n")
+TEXT_START = colored('  program started', 'green', attrs=['bold'])
+TEXT_OK = colored('OK', 'green', attrs=['bold'])
+TEXT_FALSCHE_FORMATIERUNG = colored('Fehler: Falsch formatierter Befehl', 'red')
+TEXT_ENDE = colored('  Das Programm wurde durch den Benutzer beendet', 'green', attrs=['bold'])
+TEXT_FEHLER = colored('WARN', 'red', attrs=['bold', 'reverse'])
+print(time.strftime("%d.%m.%Y %H:%M:%S") + TEXT_START + "\n")
 
 #Load Config file
 try:
@@ -64,7 +66,7 @@ try:
     logging.basicConfig(filename=config.get('LOGS','FILENAME'), format='%(asctime)s %(message)s', level=logging.DEBUG)
     logging.info('Logging app started')
 except:
-    exit(time.strftime("%d.%m.%Y %H:%M:%S  ") + text_fehler +  "  Probleme Beim Logging: Log konnte nicht erstellt werden")
+    exit(time.strftime("%d.%m.%Y %H:%M:%S  ") + TEXT_FEHLER +  "  Probleme Beim Logging: Log konnte nicht erstellt werden")
 
 #MQTT Einstellungen
 
@@ -74,7 +76,8 @@ MQTT_CLIENT_NAME = config.get('MQTT','CLIENT_NAME')
 MQTT_CLIENT_USERNAME = config.get('MQTT','CLIENT_USERNAME')
 MQTT_CLIENT_PW = config.get('MQTT','CLIENT_PASSWORD')
 MQTT_PORT = config.get('MQTT','PORT')
-broker = config.get('MQTT','BROKER')
+MQTT_BROKER = config.get('MQTT','BROKER')
+MQTT_TOPIC = config.get('MQTT', 'TOPIC')
 CLEAN_SESSION=True
 
 
@@ -98,7 +101,6 @@ def on_disconnect(client, userdata,rc=0):
 def on_connect(client, userdata, flags, rc):
     logging.info("Connected flags"+str(flags)+"result code "+str(rc))
 
-topic1 ="/marvinpi/num"
 
 client= mqtt.Client(MQTT_CLIENT_NAME,False)       #create client object
 client.username_pw_set(MQTT_CLIENT_USERNAME, MQTT_CLIENT_PW)
@@ -106,18 +108,18 @@ client.on_subscribe = on_subscribe   #assign function to callback
 client.on_disconnect = on_disconnect #assign function to callback
 client.on_connect = on_connect #assign function to callback
 client.on_message=on_message
-client.connect(broker,MQTT_PORT, keepalive=60)           #establish connection
+client.connect(MQTT_BROKER,MQTT_PORT, keepalive=60)           #establish connection
 time.sleep(1)
 client.loop_start()
-client.subscribe("/marvinpi/num")       #need to be chanched to the individual server
-print("Connected to MQTT Broker: " + broker)
+client.subscribe(MQTT_TOPIC)       #need to be chanched to the individual server
+print("Connected to MQTT Broker: " + MQTT_BROKER)
 
 
 #important variable 
 command = 0
 
-print(time.strftime("%d.%m.%Y %H:%M:%S") + "  Log Funktion" + "   [ " + text_ok + " ]")
-print(time.strftime("%d.%m.%Y %H:%M:%S") + "  Connected to MQTT Broker: " + broker + "   [ " + text_ok + " ]")
+print(time.strftime("%d.%m.%Y %H:%M:%S") + "  Log Funktion" + "   [ " + TEXT_OK + " ]")
+print(time.strftime("%d.%m.%Y %H:%M:%S") + "  Connected to MQTT Broker: " + MQTT_BROKER + "   [ " + TEXT_OK + " ]")
 
 try:
     while True:
