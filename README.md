@@ -12,7 +12,7 @@ Die Hauptfunktionen der Ampel sind die Farben:
 * Rot  (bitte nicht stören)
 
 ## Usage:
-
+![Schema](/photos/Signalleuchte.png)
 ## Installation:
 
 ## Funktionen
