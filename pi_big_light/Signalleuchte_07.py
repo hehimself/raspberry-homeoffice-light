@@ -61,7 +61,7 @@ ASCIIPIC = [
 
 #Logging
 try:
-    logging.basicConfig(filename='Signalleuchte_06.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+    logging.basicConfig(filename='Signalleuchte_07.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
     logging.info('Logging app started')
 except:
     exit(time.strftime("%d.%m.%Y %H:%M:%S  ") + text_fehler +  "  Probleme Beim Logging: Log konnte nicht erstellt werden")
@@ -368,6 +368,8 @@ def on_connect(client, userdata, flags, rc):
 
 def on_disconnect(client, userdata,rc=0):
     logging.info("DisConnected result code "+str(rc))
+    if rc != 0:
+        print("unexpected disconnect")
 
 def on_subscribe(client, userdata, mid, granted_qos):   #create function for callback
    #print("subscribed with qos",granted_qos, "\n")
